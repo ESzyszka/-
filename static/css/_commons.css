@@ -13430,7 +13430,7 @@ body.dark_theme {
 }
 
 body {
-	--default-logo-height: 18px;
+	--default-logo-height: 35px;
 	--default-theme-color: #009933;
 	--default-brand-color: #009933;
 	--success-color: #00a28b;
