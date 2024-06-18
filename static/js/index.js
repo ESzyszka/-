@@ -271,17 +271,11 @@
   var webpackChunks = [];
 
   function webpackJsonpCallback(parentChunkLoadingFunction, data) {
-    var [chunkIds, moreModules, executeModules] = data;
-    var moduleId, chunkId, i = 0;
+    var chunkIds = data[0];
+    var moreModules = data[1];
+    var executeModules = data[2];
 
-    for (chunkId of chunkIds) {
-      if (Object.prototype.hasOwnProperty.call(installedChunks, chunkId) && installedChunks[chunkId]) {
-        installedChunks[chunkId][0]();
-      }
-      installedChunks[chunkId] = 0;
-    }
-
-    for (moduleId in moreModules) {
+    for (var moduleId in moreModules) {
       if (Object.prototype.hasOwnProperty.call(moreModules, moduleId)) {
         modules[moduleId] = moreModules[moduleId];
       }
@@ -289,11 +283,17 @@
 
     if (parentChunkLoadingFunction) parentChunkLoadingFunction(data);
 
-    while (i < executeModules.length) {
-      executeModules[i++]();
+    while (chunkIds.length) {
+      var chunkId = chunkIds.shift();
+      if (installedChunks[chunkId]) {
+        installedChunks[chunkId][0]();
+      }
+      installedChunks[chunkId] = 0;
     }
 
-    return moduleId;
+    while (executeModules.length) {
+      executeModules.shift()();
+    }
   }
 
   var installedChunks = { 826: 0 };
@@ -306,5 +306,5 @@
   chunkLoadingGlobal.forEach(chunkLoadingGlobalCallback.bind(null, 0));
   chunkLoadingGlobal.push = chunkLoadingGlobalCallback.bind(null, chunkLoadingGlobal.push.bind(chunkLoadingGlobal));
 
-  var startupResult = require(5579);
+  require(5579);
 })();
