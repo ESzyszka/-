@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # MediaCMS
 
 [![GitHub license](https://img.shields.io/badge/License-AGPL%20v3-blue.svg)](https://raw.githubusercontent.com/mediacms-io/mediacms/main/LICENSE.txt)
