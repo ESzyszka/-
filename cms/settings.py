@@ -6,10 +6,10 @@ DEBUG = False
 
 # PORTAL NAME, this is the portal title and
 # is also shown on several places as emails
-PORTAL_NAME = "MediaCMS"
-PORTAL_DESCRIPTION = ""
-LANGUAGE_CODE = "en-us"
-TIME_ZONE = "Europe/London"
+PORTAL_NAME = "CoBuddies"
+PORTAL_DESCRIPTION = "Video sharing platform for educational institutions"
+LANGUAGE_CODE = "ja"
+TIME_ZONE = "Asia/Tokyo"
 
 # who can add media
 # valid options include 'all', 'email_verified', 'advancedUser'
